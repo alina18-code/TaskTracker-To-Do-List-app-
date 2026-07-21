@@ -1,6 +1,6 @@
 # TaskTracker
 
-TaskTracker is a simple desktop to-do list app built with Python and CustomTkinter. It offers a polished dark-themed interface for managing tasks, updating their status, and cleaning up completed items.
+TaskTracker is a simple desktop to-do list app built with Python and CustomTkinter. It offers a polished dark-themed interface for managing tasks, updating their status, cleaning up completed tasks, and a clear widget to show how many tasks are active .
 
 ## Features
 
