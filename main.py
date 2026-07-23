@@ -189,6 +189,16 @@ class TodoApp(ctk.CTk):
         self.update_button_states(tasks_database)
         self.update_active_counter(tasks_database)
 
+        if not tasks_database:
+            empty_label = ctk.CTkLabel(
+                self.task_scroll_frame,
+                text= "No task yet - add one above to get started",
+                font= ("Arial", 14),
+                text_color= "#9ca3af"
+            )
+            empty_label.pack(pady=40)
+            return
+
         for task in tasks_database:
             row_panel = ctk.CTkFrame(
                 self.task_scroll_frame, fg_color="#302F2F", corner_radius=8, height=50
