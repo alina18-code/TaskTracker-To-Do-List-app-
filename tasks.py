@@ -1,4 +1,3 @@
-
 import json
 import os
 
@@ -67,7 +66,11 @@ def update_status(task_id):
                 current = "pending"
 
             current_index = next(
-                (index for index, status in enumerate(STATUS_FLOW) if status.lower() == current),
+                (
+                    index
+                    for index, status in enumerate(STATUS_FLOW)
+                    if status.lower() == current
+                ),
                 0,
             )
             next_index = (current_index + 1) % len(STATUS_FLOW)
@@ -107,6 +110,7 @@ def delete_all_tasks():
 def get_active_tasks_count(tasks_database=None):
     if tasks_database is None:
         tasks_database = tasks
-    return sum(1 for task in tasks_database if task["status"] == "pending")
-
-
+    active_statuses = {"pending", "in progress"}
+    return sum(
+        1 for task in tasks_database if task.get("status", "pending") in active_statuses
+    )
