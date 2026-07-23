@@ -46,6 +46,7 @@ class TodoApp(ctk.CTk):
         self.task_input = ctk.CTkEntry(
             self.button_frame, placeholder_text="Enter a new task...", width=450
         )
+        self.task_input.bind("<Return>", lambda event: self.add_task_clicked())
         self.add_button = ctk.CTkButton(
             self.button_frame,
             text="Add task",
